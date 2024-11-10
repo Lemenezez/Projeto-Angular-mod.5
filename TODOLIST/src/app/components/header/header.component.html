@@ -1,0 +1,31 @@
+<header>
+  <div class="container p-2 d-flex justify-content-between">
+    <div class="column">
+      <h1>Tarefas de hoje</h1>
+      <h4>{{ currentHour }}</h4>
+
+      <ng-container [ngSwitch]="date.getDay()">
+        <span *ngSwitchCase="0">Domingo</span>
+        <span *ngSwitchCase="1">Segunda-feira</span>
+        <span *ngSwitchCase="2">Terça-feira</span>
+        <span *ngSwitchCase="3">Quarta-feira</span>
+        <span *ngSwitchCase="4">Quinta-feira</span>
+        <span *ngSwitchCase="5">Sexta-feira</span>
+        <span *ngSwitchDefault>Sábado</span>
+      </ng-container>
+
+      <span>, {{ date | date : "dd 'de' MMMM" }}</span>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#modal"
+      >
+        <i class="bi bi-plus-lg"></i>
+      </button>
+    </div>
+  </div>
+</header>
