@@ -1,0 +1,79 @@
+<div
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  aria-labelledby="modalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalLabel">Nova Tarefa</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="inputTitle" class="form-label">Título</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputTitle"
+              aria-describedby="taskTitle"
+              placeholder="Insira o título"
+              formControlName="title"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="inputCategory" class="form-label">Categoria</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputCategory"
+              placeholder="Insira a categoria"
+              formControlName="category"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="inputTime" class="form-label">Hora</label>
+            <input
+              type="time"
+              class="form-control"
+              id="inputTime"
+              formControlName="time"
+            />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn btn-success"
+            data-bs-dismiss="modal"
+            [disabled]="form.invalid"
+          >
+            Salvar
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+            (click)="cancelForm()"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
