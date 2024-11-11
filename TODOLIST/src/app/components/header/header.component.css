@@ -3,3 +3,11 @@ header {
   background-color: #222121;
   color: #fff;
 }
+
+h1 {
+  font-size: 2rem;
+}
+
+.hour {
+  font-size: 1.25rem;
+}
