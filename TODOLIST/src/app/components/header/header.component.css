@@ -1,5 +1,22 @@
-header {
-  width: 100%;
-  background-color: #222121;
-  color: #fff;
+.navbar{
+    padding: 8px;
+    height: 15vh;
+}
+
+.navbar-brand h1, .title-container p{
+    color: #fff;
+    margin-bottom: 3px;
+}
+
+.title-container .display-day{
+    font-size: 1rem;
+}
+
+.title-container .display-time{
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.title-container{
+    flex-direction: column;
 }

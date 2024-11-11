@@ -1,8 +1,0 @@
-input[type='checkbox'] {
-  accent-color: #28a745;
-  cursor: pointer;
-}
-
-.completed {
-  text-decoration: line-through;
-}
