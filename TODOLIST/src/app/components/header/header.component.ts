@@ -7,15 +7,17 @@ import { interval, map, Subscription } from 'rxjs';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  date = new Date();
+  date: Date = new Date();
   currentHour: string = '';
   private subscription?: Subscription;
 
-  constructor() {
-    this.updateCurrentHour();
-  }
+  constructor() {}
 
   ngOnInit(): void {
+    // Chama updateCurrentHour() após a inicialização do componente
+    this.updateCurrentHour();
+    
+    // Inicia a atualização contínua da hora
     this.subscription = interval(1000)
       .pipe(
         map(() => {
@@ -26,6 +28,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   private updateCurrentHour(): void {
+    this.date.setSeconds(this.date.getSeconds() + 1);
     const hours = this.date.getHours().toString().padStart(2, '0');
     const minutes = this.date.getMinutes().toString().padStart(2, '0');
     this.currentHour = `${hours}:${minutes}`;
