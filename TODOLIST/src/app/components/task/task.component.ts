@@ -10,6 +10,7 @@ import { TaskService } from 'src/app/services/task.service';
 export class TaskComponent {
   @Input() task!: Task;
   isEditing = false; // Controle para alternar entre edição e visualização
+  isButtonDisabled = false;
 
   constructor(private taskService: TaskService) {}
 
@@ -52,9 +53,9 @@ export class TaskComponent {
     });
   }
 
-  toggleTaskStatus(task: Task) {
+  toggleTaskStatus(task: Task): void {
     task.checked = !task.checked;
-    console.log(task);
+    this.isButtonDisabled = !this.isButtonDisabled;
   }
 }
 
