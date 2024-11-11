@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "https://crudcrud.com/api/eb6173731f384ce1a2e6220e8241d577",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }

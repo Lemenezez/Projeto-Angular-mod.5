@@ -18,16 +18,20 @@ export class TaskService {
     return this.http.get<Task[]>(`${this.apiUrl}/task`);
   }
 
+  getTaskById(id: string): Observable<Task> {
+    return this.http.get<Task>(`${this.apiUrl}/task/${id}`);
+  }
+
   addTask(task: Task): Observable<Task> {
     return this.http.post<Task>(`${this.apiUrl}/task`, task);
   }
 
   updateTask(task: Task): Observable<Task> {
-    return this.http.put<Task>(`${this.apiUrl}/task/${task.id}`, task);
+    return this.http.put<Task>(`${this.apiUrl}/task/${task._id}`, task);  // Usando _id
   }
 
-  deleteTask(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/task/${id}`);
+  deleteTask(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/task/${id}`);  // Usando a URL base apiUrl
   }
 
   updateTaskList() {

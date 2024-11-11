@@ -19,11 +19,11 @@ export class TaskComponent {
   constructor(private taskService: TaskService) { }
 
   updateTask(task: Task): void {
-    this.taskService.updateTask(task).subscribe({
-      next: (response) => {
-        // logica para editar uma tarefa aqui
-
-        console.log('Task editada', response);
+    const taskWithId = { ...task, id: task._id };
+    this.taskService.updateTask(taskWithId).subscribe({
+      next: (updatedTask) => {
+        this.taskService.updateTaskList();
+        console.log('Task editada', updatedTask);
       },
       error: (error) => {
         console.error('Erro ao editar task: ', error);
@@ -32,27 +32,27 @@ export class TaskComponent {
         console.log('Task editada com sucesso!');
       },
     });
-    console.log(task);
   }
 
-  deleteTask(id: string): void {
-    this.taskService.deleteTask(id).subscribe({
-      next: (response) => {
-        // logica para deletar a tarefa aqui
-
-        console.log('Task removida', response);
-      },
-      error: (error) => {
-        console.error('Erro ao deletar task: ', error);
-      },
-      complete: () => {
-        console.log('Task deletada com sucesso!');
-      },
-    });
+  deleteTask(): void {
+    if (this.task && this.task._id) {  // Usando _id para a exclusão
+      this.taskService.deleteTask(this.task._id).subscribe({
+        next: () => {
+          this.taskService.updateTaskList();
+        },
+        error: (error) => {
+          console.error('Erro ao deletar a tarefa: ', error);
+        }
+      });
+    } else {
+      console.error('ID da tarefa não encontrado');
+    }
   }
 
-  toggleTaskStatus(task: Task) {
+  toggleTaskStatus(task: Task): void {
     task.checked = !task.checked;
     console.log(task);
+    // Após alternar o status, atualize a tarefa no backend.
+    this.updateTask(task);
   }
 }

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Task } from 'src/app/models/task.model';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   standalone: false,
@@ -6,6 +9,13 @@ import { Component } from '@angular/core';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
+  taskList$!: Observable<Task[]>;
 
+  constructor(private taskService: TaskService) {}
+
+  ngOnInit(): void {
+    this.taskList$ = this.taskService.taskList$;
+    this.taskService.updateTaskList();
+  }
 }
