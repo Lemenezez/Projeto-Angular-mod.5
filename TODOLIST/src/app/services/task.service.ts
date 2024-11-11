@@ -7,7 +7,7 @@ import { Task } from '../models/task.model';
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = 'https://crudcrud.com/api/c47515ce7e354e5192dfe097ea724acd';
+  private apiUrl = 'https://crudcrud.com/api/af54c966f5bd432eb72d0b97d09bbdb5';
   private taskListSource = new BehaviorSubject<Task[]>([]);
   taskList$ = this.taskListSource.asObservable();
 
