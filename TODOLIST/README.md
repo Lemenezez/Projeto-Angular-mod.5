@@ -21,6 +21,7 @@ src
 │       └── task.service.ts  # Serviço para gerenciar operações CRUD de tarefas
 ├── assets                   # Arquivos de imagens e outros recursos estáticos
 └── styles                   # Arquivos de estilo globais
+```
 
 🚀 Funcionalidades
 Adicionar Tarefa: O usuário pode abrir o modal e adicionar uma nova tarefa, incluindo título, categoria e horário.
@@ -47,9 +48,7 @@ Rodapé da aplicação, exibindo os créditos dos desenvolvedores e os direitos 
 📝 Modelos
 Task
 O modelo Task define a estrutura de uma tarefa:
-
-typescript
-Copiar código
+```bash
 export interface Task {
   _id: string;
   title: string;
@@ -57,6 +56,8 @@ export interface Task {
   time: string;
   checked: boolean;
 }
+```
+
 🔧 Serviços
 TaskService
 Serviço que gerencia a comunicação com a API CrudCrud para operações CRUD de tarefas:
@@ -69,21 +70,20 @@ deleteTask(id: string): Exclui uma tarefa com base no ID.
 Para rodar o projeto localmente:
 
 Clone o repositório:
-
-bash
-Copiar código
+```bash
 git clone https://github.com/Lemenezez/Projeto-Angular-mod.5.git
 cd Projeto-Angular-mod.5/TODOLIST
+```
 Instale as dependências:
 
-bash
-Copiar código
+```bash
 npm install
+```
 Execute o projeto:
-
-bash
-Copiar código
+```bash
 ng serve
+```
+
 A aplicação estará disponível em http://localhost:4200.
 
 🛠 Tecnologias Utilizadas
@@ -91,6 +91,7 @@ Angular para o desenvolvimento do frontend
 Angular CLI para gerenciamento do projeto
 Bootstrap para estilização e componentes de UI
 CrudCrud como API mock para persistência de dados
+
 👥 Contribuidores
 Desenvolvido por:
 
@@ -100,10 +101,3 @@ Pedro Cardoso
 Vanessa Misiti
 Yasmin Silva
 © 2024. Todos os direitos reservados.
-
-Este projeto foi desenvolvido como parte de um módulo do curso de Angular.
-
-css
-Copiar código
-
-Este `README.md` é formatado para facilitar a leitura e compreensão, além de incluir emojis e seções bem organizadas para um visual mais atraente e informativo.
