@@ -26,7 +26,13 @@ export class TaskService {
   }
 
   deleteTask(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/task/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/task/${id}`).pipe(
+      // Atualiza a lista de tarefas após a exclusão
+      tap(() => {
+        const currentTasks = this.taskListSource.value;
+        this.taskListSource.next(currentTasks.filter(task => task.id !== id));
+      })
+    );
   }
 
   updateTaskList() {
