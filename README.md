@@ -1,27 +1,120 @@
-# FinalProject
+# 📋 Projeto Angular - Todo List
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+Este é um projeto de aplicação de lista de tarefas (Todo List) construído com Angular, permitindo que os usuários adicionem, visualizem, editem e excluam tarefas. A aplicação utiliza o serviço [CrudCrud](https://crudcrud.com/) como API para operações CRUD, garantindo a persistência dos dados.
 
-## Development server
+## 🗂 Estrutura de Pastas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Abaixo está a estrutura das pastas principais do projeto:
 
-## Code scaffolding
+```plaintext
+src
+├── app
+│   ├── components
+│   │   ├── footer           # Componente de rodapé da aplicação
+│   │   ├── header           # Componente de cabeçalho com título e botão de adicionar tarefa
+│   │   ├── list             # Componente que exibe a lista de tarefas
+│   │   ├── modal-form       # Componente de modal para criação de novas tarefas
+│   │   └── task             # Componente individual de tarefa
+│   ├── models
+│   │   └── task.model.ts    # Interface que define o modelo da tarefa
+│   ├── services
+│       └── task.service.ts  # Serviço para gerenciar operações CRUD de tarefas
+├── assets                   # Arquivos de imagens e outros recursos estáticos
+└── styles                   # Arquivos de estilo globais
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 Funcionalidades
 
-## Build
+  - Adicionar Tarefa: O usuário pode abrir o modal e adicionar uma nova tarefa, incluindo título, categoria e horário.
+  - Listar Tarefas: Exibe todas as tarefas registradas com as informações relevantes.
+  - Editar Tarefa: Permite editar o título, categoria e hora de uma tarefa.
+  - Excluir Tarefa: Remove uma tarefa da lista.
+  - Marcar como Concluída: Permite marcar uma tarefa como concluída através de uma checkbox.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📦 Componentes
 
-## Running unit tests
+`app-header`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Exibe o título da aplicação ("Minhas tarefas"), data e horário atuais e um botão para abrir o modal de criação de tarefas.
 
-## Running end-to-end tests
+`app-list`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Lista todas as tarefas usando o componente `app-task` para cada item. Exibe uma mensagem quando não há tarefas cadastradas.
 
-## Further help
+`app-modal-form`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Componente de modal que contém o formulário para criação de uma nova tarefa, com campos de título, categoria e hora.
+
+`app-task`
+
+Representa uma tarefa individual, exibindo título, categoria e hora, além de permitir marcação como concluída, edição e exclusão.
+
+`app-footer`
+
+Rodapé da aplicação, exibindo os créditos dos desenvolvedores e os direitos autorais.
+
+## 📝 Modelos
+
+`Task`
+
+O modelo `Task` define a estrutura de uma tarefa:
+
+```typescript
+export interface Task {
+  _id: string;
+  title: string;
+  category: string;
+  time: string;
+  checked: boolean;
+}
+```
+
+## 🔧 Serviços
+
+`TaskService`
+
+Serviço que gerencia a comunicação com a API CrudCrud para operações CRUD de tarefas:
+
+  - `getTasks()`: Obtém a lista de tarefas.
+  - `addTask(task: Task)`: Adiciona uma nova tarefa.
+  - `updateTask(task: Task)`: Atualiza uma tarefa existente.
+  - `deleteTask(id: string)`: Exclui uma tarefa com base no ID.
+
+## 🛠️ Instalação e Execução
+
+Para rodar o projeto localmente:
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/Lemenezez/Projeto-Angular-mod.5.git
+cd Projeto-Angular-mod.5/TODOLIST
+```
+2. Instale as dependências:
+```bash
+npm install
+```
+3. Execute o projeto:
+```bash
+ng serve
+```
+
+A aplicação estará disponível em `http://localhost:4200`.
+
+## 🛠 Tecnologias Utilizadas
+
+  - Angular para o desenvolvimento do frontend
+  - Angular CLI para gerenciamento do projeto
+  - Bootstrap para estilização e componentes de UI
+  - [CrudCrud](https://crudcrud.com/) como API mock para persistência de dados
+
+## 🤝 Contribuições
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um **pull request** com sugestões de melhorias, novas funcionalidades ou correções de bugs.
+
+## 👨‍💻 Desenvolvedores
+- [Gabryel Costa](https://github.com/gabryelcosta)
+- [Letícia Melo](https://github.com/Lemenezez)
+- [Pedro Cardoso](https://github.com/Zarkio42)
+- [Vanessa Misiti](https://github.com/nessamisiti)
+- [Yasmin Silva](https://github.com/yasminsilva1)
+
+© 2024. Todos os direitos reservados.
