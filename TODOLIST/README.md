@@ -29,9 +29,10 @@ src
   - Listar Tarefas: Exibe todas as tarefas registradas com as informações relevantes.
   - Editar Tarefa: Permite editar o título, categoria e hora de uma tarefa.
   - Excluir Tarefa: Remove uma tarefa da lista.
+  - Marcar como Concluída: Permite marcar uma tarefa como concluída através de uma checkbox.
 
-Marcar como Concluída: Permite marcar uma tarefa como concluída através de uma checkbox.
 📦 Componentes
+
 app-header
 Exibe o título da aplicação ("Minhas tarefas"), data e horário atuais e um botão para abrir o modal de criação de tarefas.
 
