@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Task } from '../models/task.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = 'https://crudcrud.com/api/30e1214658a54393ba535a757fc917a6';
+  private apiUrl = 'https://crudcrud.com/api/c47515ce7e354e5192dfe097ea724acd';
   private taskListSource = new BehaviorSubject<Task[]>([]);
   taskList$ = this.taskListSource.asObservable();
 
@@ -22,7 +22,7 @@ export class TaskService {
   }
 
   updateTask(task: Task): Observable<Task> {
-    return this.http.put<Task>(`${this.apiUrl}/task/${task.id}`, task);
+    return this.http.put<Task>(`${this.apiUrl}/task/${task._id}`, task);
   }
 
   deleteTask(id: string): Observable<void> {
@@ -30,7 +30,9 @@ export class TaskService {
       // Atualiza a lista de tarefas após a exclusão
       tap(() => {
         const currentTasks = this.taskListSource.value;
-        this.taskListSource.next(currentTasks.filter(task => task.id !== id));
+        this.taskListSource.next(
+          currentTasks.filter((task) => task._id !== id)
+        );
       })
     );
   }

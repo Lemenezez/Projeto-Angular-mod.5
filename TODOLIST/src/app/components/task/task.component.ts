@@ -23,13 +23,13 @@ export class TaskComponent {
     this.taskService.updateTask(task).subscribe({
       next: (response) => {
         console.log('Task editada com sucesso', response);
-        this.isEditing = false; // Sai do modo de edição
         this.taskService.updateTaskList(); // Atualiza a lista de tarefas
       },
       error: (error) => {
         console.error('Erro ao editar a task:', error);
       },
     });
+    this.isEditing = false; // Sai do modo de edição
   }
 
   // Função para cancelar a edição e voltar ao estado inicial
@@ -40,8 +40,7 @@ export class TaskComponent {
   // Função para deletar a tarefa
   deleteTask(id: string): void {
     this.taskService.deleteTask(id).subscribe({
-      next: (response) => {
-        console.log('Task removida', response);
+      next: () => {
         this.taskService.updateTaskList(); // Atualiza a lista após a exclusão
       },
       error: (error) => {

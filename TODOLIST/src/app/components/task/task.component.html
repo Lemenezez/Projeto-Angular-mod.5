@@ -1,4 +1,4 @@
-<div class="card w-85 mb-3">
+<div class="card w-85 mb-3 p-2">
   <div class="card-body d-flex align-items-center justify-content-between">
     <div class="d-flex align-items-center">
       <input
@@ -13,7 +13,9 @@
         <h5 [ngClass]="{ completed: task.checked }" class="card-title">
           {{ task.title }}
         </h5>
-        <span [ngClass]="{ completed: task.checked }" class="card-text">{{ task.category }}</span>
+        <span [ngClass]="{ completed: task.checked }" class="card-text">{{
+          task.category
+        }}</span>
         <span><i class="bi bi-clock mx-2"></i></span>
         <span [ngClass]="{ completed: task.checked }">{{ task.time }}</span>
       </div>
@@ -26,7 +28,7 @@
       </button>
 
       <!-- Botão de Excluir -->
-      <button class="btn btn-danger" (click)="deleteTask(task.id)">
+      <button class="btn btn-danger" (click)="deleteTask(task._id)">
         <i class="bi bi-trash3-fill"></i>
       </button>
     </div>
@@ -34,20 +36,28 @@
 
   <!-- Formulário de Edição -->
   <div *ngIf="isEditing" class="edit-form">
+    <hr />
+    <h5 class="mx-5">Editar Tarefa:</h5>
     <input
       [(ngModel)]="task.title"
       type="text"
       placeholder="Editar Título"
-      class="form-control mb-2"
+      class="form-control mb-2 mx-5 w-50"
     />
     <input
       [(ngModel)]="task.category"
       type="text"
       placeholder="Editar Categoria"
-      class="form-control mb-2"
+      class="form-control mb-2 mx-5 w-50"
     />
-    <button (click)="saveEdit(task)" class="btn btn-primary">Salvar</button>
-    <button (click)="cancelEdit()" class="btn btn-secondary">Cancelar</button>
+    <input
+    [(ngModel)]="task.time"
+      type="time"
+      class="form-control mb-2 mx-5 w-50"
+    />
+    <div class="d-flex gap-2 mx-5">
+      <button (click)="saveEdit(task)" class="btn btn-primary">Salvar</button>
+      <button (click)="cancelEdit()" class="btn btn-secondary">Cancelar</button>
+    </div>
   </div>
 </div>
-
