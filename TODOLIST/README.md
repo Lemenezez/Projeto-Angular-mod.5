@@ -105,7 +105,7 @@ A aplicação estará disponível em `http://localhost:4200`.
   - Angular para o desenvolvimento do frontend
   - Angular CLI para gerenciamento do projeto
   - Bootstrap para estilização e componentes de UI
-  - CrudCrud como API mock para persistência de dados
+  - [CrudCrud](https://crudcrud.com/) como API mock para persistência de dados
 
 ## 🤝 Contribuições
 Contribuições são bem-vindas! Sinta-se à vontade para abrir um **pull request** com sugestões de melhorias, novas funcionalidades ou correções de bugs.
