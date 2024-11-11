@@ -1,0 +1,30 @@
+<div class="container p-4">
+  <div class="container-text">
+    <h2>Minhas tarefas</h2>
+    <p>{{ currentDateTime }}</p>
+  </div>
+  <div class="filter-container">
+    <div class="filter">
+    <label for="filterType" class="form-label">Selecionar Filtro</label>
+    <select id="filterType" class="form-select" (change)="onFilterTypeChange($event)">
+      <option value="">Selecione</option>
+      <option value="day">Dia</option>
+      <option value="month">Mês</option>
+      <option value="year">Ano</option>
+    </select>
+  </div>
+  <div class="filter-inputs" *ngIf="filterType === 'day'">
+    <label for="filterDay" class="form-label"></label>
+    <input type="number" id="filterDay" class="form-control filter-input" min="1" max="31" (input)="filterTasks()">
+  </div>
+  <div class="filter-inputs" *ngIf="filterType === 'month'">
+    <label for="filterMonth" class="form-label"></label>
+    <input type="number" id="filterMonth" class="form-control filter-input" min="1" max="12" (input)="filterTasks()">
+  </div>
+  <div class="filter-inputs" *ngIf="filterType === 'year'">
+    <label for="filterYear" class="form-label"></label>
+    <input type="number" id="filterYear" class="form-control filter-input" (input)="filterTasks()">
+  </div>
+</div>
+  <app-task-list [tasks]="filteredTasks"></app-task-list>
+</div>

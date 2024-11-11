@@ -1,0 +1,6 @@
+main {
+  background: #1c1d1f1c;
+  height: 90vh;
+  width: 100%;
+  height: calc(100vh - 138px);
+}

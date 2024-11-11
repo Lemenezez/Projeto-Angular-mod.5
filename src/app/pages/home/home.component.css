@@ -1,0 +1,39 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+
+  padding: 35px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.25rem;
+  font-size: 1.25rem;
+}
+
+hr.my-4 {
+  margin: 2rem 0;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-unstyled li {
+  margin-bottom: 0.5rem;
+}

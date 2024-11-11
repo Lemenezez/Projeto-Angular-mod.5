@@ -1,0 +1,20 @@
+.card {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.checkbox-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.completed {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}

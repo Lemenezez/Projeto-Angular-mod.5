@@ -1,0 +1,15 @@
+div {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+  width: 100%;
+
+  color: #FFFFFF;
+
+  & a {
+    text-decoration: none;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+}

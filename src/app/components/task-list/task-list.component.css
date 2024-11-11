@@ -1,0 +1,6 @@
+.scroll-container {
+  max-height: 700px;
+  overflow-y: auto;
+  padding-right: 15px;
+  margin-bottom: 20px;
+}

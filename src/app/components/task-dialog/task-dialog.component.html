@@ -1,0 +1,49 @@
+<div class="container p-4">
+  <h2>{{ isEditing ? 'Editar Tarefa' : 'Nova Tarefa' }}</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Título</label>
+      <input id="title" formControlName="title" type="text" class="form-control">
+      <div *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched" class="text-danger">
+        Título é obrigatório.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="category" class="form-label">Categoria</label>
+      <input id="category" formControlName="category" type="text" class="form-control">
+      <div *ngIf="taskForm.get('category')?.invalid && taskForm.get('category')?.touched" class="text-danger">
+        Categoria é obrigatória.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Descrição</label>
+      <textarea id="description" formControlName="description" class="form-control"></textarea>
+      <div *ngIf="taskForm.get('description')?.invalid && taskForm.get('description')?.touched" class="text-danger">
+        Descrição é obrigatória.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="dueDate" class="form-label">Data</label>
+      <input id="dueDate" formControlName="dueDate" type="date" class="form-control">
+      <div *ngIf="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched" class="text-danger">
+        Data é obrigatória.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="dueTime" class="form-label">Hora</label>
+      <input id="dueTime" formControlName="dueTime" type="time" class="form-control">
+      <div *ngIf="taskForm.get('dueTime')?.invalid && taskForm.get('dueTime')?.touched" class="text-danger">
+        Hora é obrigatória.
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-secondary me-2" (click)="onCancel()">Cancelar</button>
+      <button type="button" class="btn btn-primary" [disabled]="taskForm.invalid || isSubmitting" (click)="onSubmit()">{{ isEditing ? 'Salvar' : 'Adicionar' }}</button>
+    </div>
+  </form>
+</div>
