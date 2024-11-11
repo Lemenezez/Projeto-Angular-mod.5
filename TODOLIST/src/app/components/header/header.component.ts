@@ -11,8 +11,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentHour: string = '';
   private subscription?: Subscription;
 
-  constructor() {}
-
   ngOnInit(): void {
     // Chama updateCurrentHour() após a inicialização do componente
     this.updateCurrentHour();
@@ -28,10 +26,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   private updateCurrentHour(): void {
-    this.date.setSeconds(this.date.getSeconds() + 1);
     const hours = this.date.getHours().toString().padStart(2, '0');
     const minutes = this.date.getMinutes().toString().padStart(2, '0');
     this.currentHour = `${hours}:${minutes}`;
+    this.date.setSeconds(this.date.getSeconds() + 1);
   }
 
   ngOnDestroy(): void {

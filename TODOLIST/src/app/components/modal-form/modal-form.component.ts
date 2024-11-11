@@ -19,7 +19,7 @@ export class ModalFormComponent {
 
   onSubmit(): void {
     this.addTask();
-    this.form.reset();
+    this.clearForm();
   }
 
   addTask(): void {
@@ -35,7 +35,7 @@ export class ModalFormComponent {
     });
   }
 
-  cancelForm(): void {
+  clearForm(): void {
     this.form.reset();
   }
 }
