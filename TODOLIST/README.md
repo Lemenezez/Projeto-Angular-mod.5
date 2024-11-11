@@ -23,7 +23,7 @@ src
 └── styles                   # Arquivos de estilo globais
 ```
 
-🚀 Funcionalidades
+## 🚀 Funcionalidades
 
   - Adicionar Tarefa: O usuário pode abrir o modal e adicionar uma nova tarefa, incluindo título, categoria e horário.
   - Listar Tarefas: Exibe todas as tarefas registradas com as informações relevantes.
@@ -31,9 +31,9 @@ src
   - Excluir Tarefa: Remove uma tarefa da lista.
   - Marcar como Concluída: Permite marcar uma tarefa como concluída através de uma checkbox.
 
-📦 Componentes
+## 📦 Componentes
 
-app-header
+`app-header`
 Exibe o título da aplicação ("Minhas tarefas"), data e horário atuais e um botão para abrir o modal de criação de tarefas.
 
 app-list
