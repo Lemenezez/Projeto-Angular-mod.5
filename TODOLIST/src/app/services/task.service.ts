@@ -7,7 +7,7 @@ import { Task } from '../models/task.model';
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = 'https://crudcrud.com/api/8cf125f1fb7b4c6d8e4a1805f699acec';
+  private apiUrl = 'https://crudcrud.com/api/6597be16f1e74567be0de46d488721b2';
   private taskListSource = new BehaviorSubject<Task[]>([]);
   taskList$ = this.taskListSource.asObservable();
 
@@ -27,7 +27,6 @@ export class TaskService {
 
   deleteTask(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/task/${id}`).pipe(
-      // Atualiza a lista de tarefas após a exclusão
       tap(() => {
         const currentTasks = this.taskListSource.value;
         this.taskListSource.next(
@@ -39,7 +38,9 @@ export class TaskService {
 
   updateTaskList() {
     this.getTasks().subscribe({
-      next: (tasks) => this.taskListSource.next(tasks),
+      next: (tasks) => {
+        this.taskListSource.next(tasks);
+      },
       error: (error) => console.error('Erro ao atualizar taskList', error),
     });
   }

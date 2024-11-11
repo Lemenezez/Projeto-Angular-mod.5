@@ -12,10 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private subscription?: Subscription;
 
   ngOnInit(): void {
-    // Chama updateCurrentHour() após a inicialização do componente
     this.updateCurrentHour();
-    
-    // Inicia a atualização contínua da hora
     this.subscription = interval(1000)
       .pipe(
         map(() => {
