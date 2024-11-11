@@ -75,10 +75,10 @@ export interface Task {
 
 Serviço que gerencia a comunicação com a API CrudCrud para operações CRUD de tarefas:
 
-  - getTasks(): Obtém a lista de tarefas.
-  - addTask(task: Task): Adiciona uma nova tarefa.
-  - updateTask(task: Task): Atualiza uma tarefa existente.
-  - deleteTask(id: string): Exclui uma tarefa com base no ID.
+  - `getTasks()`: Obtém a lista de tarefas.
+  - `addTask(task: Task)`: Adiciona uma nova tarefa.
+  - `updateTask(task: Task)`: Atualiza uma tarefa existente.
+  - `deleteTask(id: string)`: Exclui uma tarefa com base no ID.
 
 ## 🛠️ Instalação e Execução
 
