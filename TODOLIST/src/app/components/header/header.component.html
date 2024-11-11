@@ -3,14 +3,27 @@
         <div class="container d-flex justify-content-between">
             <div class="title-container d-flex justify-content-flex-start">
                 <a class="navbar-brand" href="#">
-                    <h1>To Do List</h1>
+                    <h1>Tarefas</h1>
                 </a>
-                <p class="display-time"><strong>12:00</strong></p>
-                <p class="display-day">Sexta-Feira, 11 de Novembro</p>
+                <p class="display-time"><strong>{{currentHour}}</strong></p>
+
+                <div class="day-container">
+                    <ng-container [ngSwitch]="date.getDay()">
+                        <span *ngSwitchCase="0">Domingo</span>
+                        <span *ngSwitchCase="1">Segunda-feira</span>
+                        <span *ngSwitchCase="2">Terça-feira</span>
+                        <span *ngSwitchCase="3">Quarta-feira</span>
+                        <span *ngSwitchCase="4">Quinta-feira</span>
+                        <span *ngSwitchCase="5">Sexta-feira</span>
+                        <span *ngSwitchDefault>Sábado</span>
+                    </ng-container>
+                    <p class="display-day">, {{ date | date : "dd 'de' MMMM"}}</p>
+                </div>
             </div>
             <div class="btn-plus">
-                <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="28"
-                        height="28" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-plus" viewBox="0 0 16 16">
                         <path
                             d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
                     </svg></button>

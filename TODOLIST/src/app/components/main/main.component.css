@@ -1,0 +1,7 @@
+main{
+    height: 85vh;
+    width: 100vw;
+    background-image: url('../../../assets/images/universe.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

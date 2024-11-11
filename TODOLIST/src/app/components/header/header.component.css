@@ -8,13 +8,14 @@
     margin-bottom: 3px;
 }
 
-.title-container .display-day{
-    font-size: 1rem;
-}
-
 .title-container .display-time{
     margin: 0;
     font-size: 1.6rem;
+}
+
+.day-container{
+    display: flex;
+    color: #fff;
 }
 
 .title-container{
